@@ -14,7 +14,7 @@ const fileName = process.argv[2];
 let JSONOg = require(`./${fileName}`);
 
 function translate(lang) {
-  let JSON = _.cloneDeep(JSONOg);
+  let JSONCopy = _.cloneDeep(JSONOg);
 
   let allTexts = [];
   let oldToNewVal = {};
@@ -74,7 +74,7 @@ function translate(lang) {
     });
   }
 
-  createTexts(JSON);
+  createTexts(JSONCopy);
 
   for (let i = 0; i < allTexts.length; i += 100) {
     translateText(allTexts.slice(i, i + 100), i, lang);
